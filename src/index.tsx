@@ -6,7 +6,12 @@ const app = new Hono();
 
 const View = () => {
   return (
-    <html>
+    <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ORM</title>
+      </head>
       <body>
         <h1>Hello ORM!</h1>
         <ul>
