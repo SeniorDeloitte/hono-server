@@ -128,6 +128,7 @@ authRouter.get("/protected", (c) => {
       const decoded = verify(token, SECRET_KEY);
       return c.json({ ok: true, message: "Protected route", user: decoded });
     } catch (err) {
+      console.error("Login error:", err);
       return c.json({ ok: false, message: "Invalid token" }, 401);
     }
   } else {

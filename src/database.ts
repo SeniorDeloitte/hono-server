@@ -1,7 +1,7 @@
 // Import the Database class from the bun:sqlite package
 import { Database } from "bun:sqlite";
 // Import the User type from the types file
-import { User } from "./types";
+//import { User } from "./types";
 
 // Create a new SQLite database connection
 const db = new Database("database.db");
