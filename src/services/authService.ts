@@ -18,14 +18,19 @@ export const AuthService = {
   async login({ username, password }: AuthPayload): Promise<AuthResult> {
     try {
       const user = await UserModel.findByUsername(username);
+
       if (!user) {
         return { success: false, message: "Invalid credentials" };
       }
+
       const valid = await verifyPassword(password, user.password);
+
       if (!valid) {
         return { success: false, message: "Invalid credentials" };
       }
+
       const token = createJWT({ id: user.id, username: user.username });
+
       return {
         success: true,
         token,

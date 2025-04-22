@@ -3,6 +3,7 @@ import { userRoutes } from "./routes/users";
 import { authRoutes } from "./routes/auth";
 import postsRouter from "./routes/posts";
 import docsRouter from "./routes/docs";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
 import swaggerRouter from "./routes/swagger";
 import { HomePage } from "@/pages";
 
@@ -22,10 +23,7 @@ app.notFound((c) => {
   return c.text("Not found", 404);
 });
 
-app.onError((err, c) => {
-  console.error(`${err.message}`);
-  return c.text(`Custom Error Message: ${err.message}`, 500);
-});
+app.onError(errorMiddleware);
 
 export default {
   port: process.env.PORT || 5000,
