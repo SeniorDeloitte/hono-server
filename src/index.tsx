@@ -1,10 +1,10 @@
 import { Hono } from "hono";
-import userRouter from "./routes/users";
-import authRouter from "./routes/auth";
+import { userRoutes } from "./routes/users";
+import { authRoutes } from "./routes/auth";
 import postsRouter from "./routes/posts";
 import docsRouter from "./routes/docs";
 import swaggerRouter from "./routes/swagger";
-import { HomePage } from "./pages";
+import { HomePage } from "@/pages";
 
 const app = new Hono();
 
@@ -12,8 +12,8 @@ app.get("/", (c) => {
   return c.html(<HomePage />);
 });
 
-app.route("/api/auth", authRouter);
-app.route("/api/users", userRouter);
+app.route("/api/auth", authRoutes);
+app.route("/api/users", userRoutes);
 app.route("/api/posts", postsRouter);
 app.route("/docs", docsRouter);
 app.route("/swagger", swaggerRouter);

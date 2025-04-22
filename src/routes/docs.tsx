@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { DocumentationPage } from "../pages";
+import { DocumentationPage } from "@/pages";
 
 const docsRouter = new Hono();
 
